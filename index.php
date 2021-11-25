@@ -36,15 +36,9 @@
             <h2>Prijava</h2>
             <form>
                <div>
-               <label for="ime">Ime</label>
-                <input type="text" name="ime"/>
-                <label for="prezime">Prezime</label>
-                <input type="text" name="prezime"/>
                 <label for="e-mail">e-mail</label>
                 <input type="e-mail" name="e-mail"/>
                 <label for="sifra">Šifra</label>
-                <input type="password" name="sifra"/>
-                <label for="sifra">Potvrditi šifru</label>
                 <input type="password" name="sifra"/>
                </div>
                <div class="dugmici">
@@ -55,12 +49,18 @@
             </form>
         </div>
         <div id="registracija" class="forma">
-            <h2>Prijava</h2>
+            <h2>Registracija</h2>
             <form>
                <div>
+               <label for="ime">Ime</label>
+                <input type="text" name="ime"/>
+                <label for="prezime">Prezime</label>
+                <input type="text" name="prezime"/>
                 <label for="e-mail">e-mail</label>
                 <input type="e-mail" name="e-mail"/>
                 <label for="sifra">Šifra</label>
+                <input type="password" name="sifra"/>
+                <label for="sifra">Potvrditi šifru</label>
                 <input type="password" name="sifra"/>
                </div>
                <div class="dugmici">

@@ -84,9 +84,6 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
-#prijava{
-    height: 450px;
-}
 .dugmici{
     height:70px;
     justify-content: space-evenly;
@@ -108,5 +105,9 @@
     display: none;
 }
 #registracija{
+    height: 450px;
     display: none;
+}
+#prijava{
+    height: 300px;
 }
