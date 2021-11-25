@@ -25,10 +25,10 @@
                 Super prodavnica , sve za vas
         </h1>
         <div id="dugmici">
-        <button>
+        <button id="dugmePrijava"  onclick="PrikaziPrijavu()">
             Prijavite se
         </button>
-        <button>
+        <button id="dugmeRegistracija" onclick="PrikaziRegistraciju()">
             Registrujte se
         </button>
         </div>
@@ -48,7 +48,7 @@
                 <input type="password" name="sifra"/>
                </div>
                <div class="dugmici">
-                <button type="submit">Prijavite se</button>
+                <button id="prijaviSe"type="submit">Prijavite se</button>
                 <button>Nazad</button>
                 </div>
                
@@ -64,12 +64,13 @@
                 <input type="password" name="sifra"/>
                </div>
                <div class="dugmici">
-                <button type="submit">Prijavite se</button>
+                <button id="registrujSe"type="submit">Registrujte se</button>
                 <button>Nazad</button>
                 </div>
             </form>
         </div>
     </body>
+    <script src="js/index.js"></script>
 </html>
 <?php
 ?>

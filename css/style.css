@@ -59,6 +59,8 @@
     border-radius: 50px;
     font-family: 'Dancing Script', cursive;
     font-family: 'Old Standard TT', serif;
+    display: flex;
+    flex-direction: column;
 }
 .forma div{
     display: flex;
@@ -84,7 +86,6 @@
 }
 #prijava{
     height: 450px;
-    display: none;
 }
 .dugmici{
     height:70px;
@@ -102,4 +103,10 @@
 .dugmici button:hover{
     background-color: tomato;
     color:white;
+}
+#prijava{
+    display: none;
+}
+#registracija{
+    display: none;
 }
