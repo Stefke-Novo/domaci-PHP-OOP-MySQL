@@ -47,3 +47,59 @@
     z-index: -1;
     margin-top: -125px;
 }
+.forma{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.80);
+    bottom: auto;
+    top:200px;
+    left: 500px;
+    right: 500px;
+    color:white;
+    height: 40%;
+    border-radius: 50px;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Old Standard TT', serif;
+}
+.forma div{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.forma label{
+    text-align: center;
+    margin-top: 5px;
+}
+.forma input{
+    border-radius: 50px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.forma h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#prijava{
+    height: 450px;
+    display: none;
+}
+.dugmici{
+    height:70px;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.dugmici button{
+    width:60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    transition:color 0.8s,background-color 0.8s;
+    background-color: white;
+}
+.dugmici button:hover{
+    background-color: tomato;
+    color:white;
+}

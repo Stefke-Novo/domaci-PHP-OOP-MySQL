@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Old+Standard+TT:ital@1&display=swap" rel="stylesheet">
     <title>Super kupovina</title>
 
 </head>
@@ -28,6 +31,43 @@
         <button>
             Registrujte se
         </button>
+        </div>
+        <div id="prijava" class="forma">
+            <h2>Prijava</h2>
+            <form>
+               <div>
+               <label for="ime">Ime</label>
+                <input type="text" name="ime"/>
+                <label for="prezime">Prezime</label>
+                <input type="text" name="prezime"/>
+                <label for="e-mail">e-mail</label>
+                <input type="e-mail" name="e-mail"/>
+                <label for="sifra">Šifra</label>
+                <input type="password" name="sifra"/>
+                <label for="sifra">Potvrditi šifru</label>
+                <input type="password" name="sifra"/>
+               </div>
+               <div class="dugmici">
+                <button type="submit">Prijavite se</button>
+                <button>Nazad</button>
+                </div>
+               
+            </form>
+        </div>
+        <div id="registracija" class="forma">
+            <h2>Prijava</h2>
+            <form>
+               <div>
+                <label for="e-mail">e-mail</label>
+                <input type="e-mail" name="e-mail"/>
+                <label for="sifra">Šifra</label>
+                <input type="password" name="sifra"/>
+               </div>
+               <div class="dugmici">
+                <button type="submit">Prijavite se</button>
+                <button>Nazad</button>
+                </div>
+            </form>
         </div>
     </body>
 </html>
