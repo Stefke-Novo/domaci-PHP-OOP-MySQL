@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    border:0;
+}
+
+#Naslov{
+    text-align: center;
+    margin-top: 125px;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    font-size: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.30);
+    cursor: default;
+}
+#dugmici{
+    display: flex;
+    justify-content: space-around;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    height: 100px;
+}
+#dugmici button{
+    height:100px;
+    width:200px;
+    font-size: 130%;
+    border-radius: 50px;
+    color:white;
+    background-color: tomato;
+    transition:font-size 0.5s,color 0.5s,width 0.5s,background-color 1.2s;
+    height:100%;
+}
+#dugmici button:hover{
+    width: 30%;
+    background-color: greenyellow;
+    color:black;
+    font-size: 180%;
+}
+#slika{
+    width:100%;
+    position:fixed;
+    z-index: -1;
+    margin-top: -125px;
+}
