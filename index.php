@@ -1,6 +1,5 @@
 <?php
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,42 +33,44 @@
         </div>
         <div id="prijava" class="forma">
             <h2>Prijava</h2>
-            <form>
+            <form id="formaPrijava" action="#" method="post">
                <div>
-                <label for="e-mail">e-mail</label>
-                <input type="e-mail" name="e-mail"/>
-                <label for="sifra">Šifra</label>
-                <input type="password" name="sifra"/>
+                <label for="email1">e-mail</label>
+                <input type="email" name="email1" />
+                <label for="sifra1">Šifra</label>
+                <input type="password" name="sifra1" />
                </div>
                <div class="dugmici">
                 <button id="prijaviSe"type="submit">Prijavite se</button>
-                <button>Nazad</button>
+                <button id="NazadPrijava" onclick="NazadPrijava()">Nazad</button>
                 </div>
                
             </form>
         </div>
         <div id="registracija" class="forma">
             <h2>Registracija</h2>
-            <form>
+            <form id="formaRegistracija" action="#" method="post" >
                <div>
                <label for="ime">Ime</label>
-                <input type="text" name="ime"/>
+                <input id="ime" type="text" name="ime"  />
                 <label for="prezime">Prezime</label>
-                <input type="text" name="prezime"/>
-                <label for="e-mail">e-mail</label>
-                <input type="e-mail" name="e-mail"/>
+                <input id="prezime" type="text" name="prezime"  />
+                <label for="email2">e-mail</label>
+                <input type="email" id="emai2" name="email2"  />
                 <label for="sifra">Šifra</label>
-                <input type="password" name="sifra"/>
-                <label for="sifra">Potvrditi šifru</label>
-                <input type="password" name="sifra"/>
+                <input id="sifra" type="password" name="sifra" />
+                <label for="sifra1">Potvrditi šifru</label>
+                <input id="sifra1"type="password" name="sifra1"  />
                </div>
                <div class="dugmici">
-                <button id="registrujSe"type="submit">Registrujte se</button>
-                <button>Nazad</button>
+                <button id="registrujSe" type="submit" >Registrujte se</button>
+                <button class="NazadRegistracija" onclick="NazadRegistracija()">Nazad</button>
                 </div>
             </form>
         </div>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
 </html>
 <?php

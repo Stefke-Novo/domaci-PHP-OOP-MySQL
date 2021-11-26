@@ -1,4 +1,5 @@
 <?php
+require "php klase\korisnik.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
