@@ -15,22 +15,35 @@ if($_SESSION['korisnik']==null){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super prodavnica</title>
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
 </head>
 <body>
-    <nav>
-        <button>Pocetna</button>
+    <nav id="menu">
+       <div id="opcije">
+       <button>Pocetna</button>
         <button>Korpa</button>
         <button>Proizvodi</button>
         <button>O kompaniji</button>
         <button>kontakt</button>
+       </div>
+       <div >
+           <img id="slika"src="https://cdn.onlinewebfonts.com/svg/img_155117.png" onclick="prikaziKorisnickePodatke()"/>
+           <div id="korisnickiPodaci">
+               <h3>Podaci o korisniku</h3>
+               <ul>
+                   <li>Ime : <?php echo $_SESSION['korisnik']->ime;?></li>
+                   <li>Prezime : <?php echo $_SESSION['korisnik']->prezime;?></li>
+                   <li>e-mail : <?php echo $_SESSION['korisnik']->email;?></li>
+               </ul>
+           </div>
+       </div>
     </nav>
-    
-    <h1><?php echo $_SESSION['korisnik']->ime;
-              echo "\n";
-              echo $_SESSION['korisnik']->prezime;
-              echo "\n";
-              echo $_SESSION['korisnik']->email;
-              echo "\n";
-              echo $_SESSION['korisnik']->sifra;?></h1>
+    <div id="Opis">
+        <h1>Super kupovina , sve za vas</h1>
+    </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="../js/home.js"></script>
 </html>
