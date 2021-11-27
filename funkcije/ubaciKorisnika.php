@@ -23,7 +23,7 @@ $korisnik2 = new Korisnik();
         echo "Polje sifra je prazno";
         return;
     }
-    if($sifra1==""){
+    if($_POST['sifra1']==""){
          echo "Polje potvrdi sifru je prazno";
          return;
     }
@@ -35,7 +35,7 @@ $korisnik2 = new Korisnik();
             $korisnik2=new Korisnik();
             $korisnik2->ime=$_POST['ime'];
             $korisnik2->prezime=$_POST['prezime'];
-            $korisnik2->email=$_POST['email'];
+            $korisnik2->email=$_POST['email2'];
             $korisnik2->sifra=$_POST['sifra'];
             $_SESSION['korisnik']=$korisnik2;
            $korisnik2->unesiKorisnika($conn);
