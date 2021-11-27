@@ -1,6 +1,8 @@
 <?php
 require_once "..\dbBrocker.php";
 require_once "..\php klase\korisnik.php";
+session_start();
+$_SESSION['korisnik']=null;
 $korisnik2 = new Korisnik();
  if(isset($_POST['ime'])&&isset($_POST['prezime'])&&isset($_POST['email2'])&&isset($_POST['sifra'])&&isset($_POST['sifra1'])){
      
@@ -35,6 +37,7 @@ $korisnik2 = new Korisnik();
             $korisnik2->prezime=$_POST['prezime'];
             $korisnik2->email=$_POST['email'];
             $korisnik2->sifra=$_POST['sifra'];
+            $_SESSION['korisnik']=$korisnik2;
            $korisnik2->unesiKorisnika($conn);
            echo "korisnik se uspesno registrovao";
         }else{

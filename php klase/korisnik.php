@@ -1,6 +1,5 @@
 <?php
 require_once "..\dbBrocker.php";
-session_start();
 class Korisnik{
     public $ime;
     public $prezime;
