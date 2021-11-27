@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "localhost";
 $db = "domaci_php_oop_mysql";
 $user = "root";

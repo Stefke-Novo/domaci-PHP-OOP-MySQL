@@ -41,8 +41,8 @@
                 <input type="password" name="sifra1" />
                </div>
                <div class="dugmici">
-                <button id="prijaviSe"type="submit">Prijavite se</button>
-                <button id="NazadPrijava" onclick="NazadPrijava()">Nazad</button>
+                <button id="prijaviSe" type="submit">Prijavite se</button>
+                <button id="DugmePrijava" onclick="NazadPrijava()">Nazad</button>
                 </div>
                
             </form>

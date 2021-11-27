@@ -14,16 +14,17 @@ jQuery("#formaRegistracija").submit(function(){
     });
 
     req.done(function(res, textStatus, jqXHR){
-        if(res=="korisnik se uspesno prijavio"){
-            console.log("korisnik se uspesno prijavio");
-            location.reload(true);
-        }else console.log("Korisnik nije registrovan: "+res);
+        if(res=="korisnik se uspesno registrovao"){
+            alert("korisnik se uspesno registrovao");
+            window.location.assign('http://localhost/Projekti/Domaci%20zadatak%20PHP%20OOP%20MySQL/funkcije/home.php');
+        }else alert("Korisnik nije registrovan: "+res);
         console.log(res);
     });
 
     req.fail(function(jqXHR, textStatus, errorThrown){
         console.error('Sledeca greska se desila> '+textStatus, errorThrown)
     });
+    $input.prop('disabled',false);
 });
 jQuery("#formaPrijava").submit(function(){
     event.preventDefault();
@@ -42,15 +43,16 @@ jQuery("#formaPrijava").submit(function(){
 
     req.done(function(res, textStatus, jqXHR){
         if(res=="korisnik se uspesno prijavio"){
-            console.log("korisnik se uspesno prijavio");
-            location.reload(true);
-        }else console.log("Korisnik nije prijavljen: "+res);
+            alert("korisnik se uspesno prijavio");
+            window.location.assign('http://localhost/Projekti/Domaci%20zadatak%20PHP%20OOP%20MySQL/funkcije/home.php');
+        }else alert("Korisnik nije prijavljen: "+res);
         console.log(res);
     });
 
     req.fail(function(jqXHR, textStatus, errorThrown){
         console.error('Sledeca greska se desila> '+textStatus, errorThrown)
     });
+    $input.prop('disabled',false);
 });
 
 function PrikaziPrijavu(){
