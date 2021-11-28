@@ -20,11 +20,11 @@ if($_SESSION['korisnik']==null){
 <body>
     <nav id="menu">
        <div id="opcije">
-            <button id="pocetna">Pocetna</button>
-            <button id="korpa">Korpa</button>
-            <button id="proizvodi">Proizvodi</button>
-            <button id="kompanija">O kompaniji</button>
-            <button id="kontakt">kontakt</button>
+            <button id="pocetna" onclick="togglediv('stranicaPocetna')">Pocetna</button>
+            <button id="korpa" onclick="togglediv('stranicaKorpa')">Korpa</button>
+            <button id="proizvodi" onclick="togglediv('stranicaProizvodi')">Proizvodi</button>
+            <button id="kompanija" onclick="togglediv('stranicaKompanija')">O kompaniji</button>
+            <button id="kontakt" onclick="togglediv('stranicaKontakt')">kontakt</button>
        </div>
        <div id="okvirSlika" >
            <img id="slika"src="https://cdn.onlinewebfonts.com/svg/img_155117.png" onclick="prikaziKorisnickePodatke()"/>
@@ -38,8 +38,20 @@ if($_SESSION['korisnik']==null){
            </div>
        </div>
     </nav>
-    <div id="Opis">
+    <div class="polja"id="stranicaPocetna">
         <h1>Super kupovina , sve za vas</h1>
+    </div>
+    <div class="polja"id="stranicaKorpa">
+        <h1>Korpa</h1>
+    </div>
+    <div class="polja"id="stranicaProizvodi">
+        <h1>Proizvodi</h1>
+    </div>
+    <div class="polja"id="stranicaKompanija">
+        <h1>Kompanija</h1>
+    </div>
+    <div class="polja"id="stranicaKontakt">
+        <h1>Kontakt</h1>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

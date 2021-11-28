@@ -4,4 +4,12 @@ function prikaziKorisnickePodatke(){
         $podaci.style.display='flex';
     }else $podaci.style.display='none';
 }
-AOS.init();
+  function togglediv(id) {
+    document.querySelectorAll(".polja").forEach(function(div) {
+      if (div.id == id) {
+        div.style.display = div.style.display == "none" ? "block" : "none";
+      } else {
+        div.style.display = "none";
+      }
+    });
+  }

@@ -44,28 +44,28 @@
     color:white;
     font-weight: 500px;
 }
-#opcije button:hover{
+#opcije button:hover,#opcije button:focus{
     font-size: 130%;
     color:black;
     font-weight: normal;
 }
-#pocetna:hover{
+#pocetna:hover,#pocetna:focus{
     background-color:#abff2e;
     box-shadow:0 15px 25px #abff2e99;
 }
-#korpa:hover{
+#korpa:hover,#korpa:focus{
     background-color:#fffc2e;
     box-shadow:0 15px 25px #fffc2e99;
 }
-#proizvodi:hover{
+#proizvodi:hover,#proizvodi:focus{
     background-color:#2ef8ff;
     box-shadow:0 15px 25px #2ef8ff99;
 }
-#kompanija:hover{
+#kompanija:hover,#kompanija:focus{
     background-color:#5381ff;
     box-shadow:0 15px 25px #5381ff99;
 }
-#kontakt:hover{
+#kontakt:hover,#kontakt:focus{
     background-color:#ff62d8;
     box-shadow:0 15px 25px #ff62d899;
 }
@@ -92,8 +92,15 @@
     display: none;
     background-color: #4affc9;
     box-shadow: 0 15px 25px #4affc999 ;
+    border-radius: 20px;
 }
 #korisnickiPodaci li{
     text-align:left;
     margin-left: 20px;
+}
+#stranicaPocetna,#stranicaProizvodi,#stranicaKompanija,#stranicaKontakt{
+    display: none;
+}
+#stranicaKorpa{
+    display: none;
 }
