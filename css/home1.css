@@ -106,8 +106,9 @@
 }
 body{
     background-image: url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80");
-    background-size:100%,100%;
     background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-attachment: fixed;
 }
 .polja{
     margin-top: 150px;
@@ -197,4 +198,106 @@ body{
     margin-bottom: auto;
     font-weight: normal;
     color: white;
+}
+#korpa1{
+    display: flex;
+    flex-direction: column;
+    border:2px solid black;
+    background-color: rgba(87, 66, 66,0.90);
+    border-radius: 50px;
+}
+#korpa1 ul , #korpa1 li, #korpa1 div{
+    border:2px solid black;
+}
+#korpa1 div{
+    display: flex;
+    height: fit-content;
+}
+.podaci div{
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.podaci div p{
+    display: flex;
+}
+.podaci{
+    display: flex;
+    justify-content: space-evenly;
+}
+.podaci img{
+    height: 80%;
+    width: 30%;
+}
+.podaci img , .teze , .opisIDugme{
+    width: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.podaci p{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.proizvod{
+    background-image: linear-gradient(rgba(255, 185, 55, 0.8),rgba(50, 255, 118, 0.8));
+    list-style: none;
+}
+.teze p{
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid black;
+    width: 100%;
+    font-size: larger;
+}
+.opisIDugme button{
+    margin-top: 100px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-size: 15px;
+    background-color: transparent;
+    border:none;
+    background-color: lightblue;
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 0.5s;
+}
+.opisIDugme button:hover{
+    background-color: #4169e1;
+    box-shadow: 0 15px 25px #4169e199 ;
+    color: white;
+}
+.opisIDugme button:active{
+    color: white;
+    background-color: #0000ff;
+    box-shadow: 0 15px 25px #0000ff99 ;
+}
+.opisIDugme p{
+    margin-top: 50px;
+    font-size: 20px;
+}
+#korpa1 h2{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 36px;
+    color:  white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.proizvod h3{
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#korpa1 ul{
+    margin-bottom: 40px;
 }
