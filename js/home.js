@@ -1,3 +1,6 @@
+AOS.init({
+    offset: 300,
+});
 function prikaziKorisnickePodatke(){
     $podaci=document.getElementById("korisnickiPodaci");
     if($podaci.style.display=='none'){

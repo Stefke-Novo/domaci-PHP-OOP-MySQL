@@ -104,3 +104,97 @@
 #stranicaKorpa{
     display: none;
 }
+body{
+    background-image: url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80");
+    background-size:100%,100%;
+    background-repeat: no-repeat;
+}
+.polja{
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width:80%;
+}
+.polja div{
+    display: flex;
+}
+.naslov{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.7);
+}
+.opis{
+    margin-top: 50px;
+    display: flex;
+    justify-content:space-evenly;
+    margin-bottom: 50px;
+}
+.slika1{
+    width: 40%;
+    border-radius: 30px;
+}
+#pasus1{
+    font-size: 30px;
+    background-color: rgba(87, 66, 66,0.90);
+    height:200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: normal;
+    color: white;
+}
+#pasus2{
+    font-size: 30px;
+    background-color: rgba(92, 143, 61, 0.9);
+    height:200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: normal;
+
+}
+#pasus3{
+    font-size: 30px;
+    background-color: rgba(255, 151, 53, 0.9);
+    height:200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: normal;
+}
+#pasus4{
+    font-size: 30px;
+    background-color: rgba(255, 53, 53, 0.9);
+    height:200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: normal;
+    color: white;
+}
