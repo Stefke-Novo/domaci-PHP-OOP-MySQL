@@ -15,18 +15,18 @@ if($_SESSION['korisnik']==null){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super prodavnica</title>
-    <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <link rel="stylesheet" type="text/css" href="../css/home1.css">
 </head>
 <body>
     <nav id="menu">
        <div id="opcije">
-       <button>Pocetna</button>
-        <button>Korpa</button>
-        <button>Proizvodi</button>
-        <button>O kompaniji</button>
-        <button>kontakt</button>
+            <button id="pocetna">Pocetna</button>
+            <button id="korpa">Korpa</button>
+            <button id="proizvodi">Proizvodi</button>
+            <button id="kompanija">O kompaniji</button>
+            <button id="kontakt">kontakt</button>
        </div>
-       <div >
+       <div id="okvirSlika" >
            <img id="slika"src="https://cdn.onlinewebfonts.com/svg/img_155117.png" onclick="prikaziKorisnickePodatke()"/>
            <div id="korisnickiPodaci">
                <h3>Podaci o korisniku</h3>

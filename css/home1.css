@@ -1,0 +1,99 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#slika{
+    height: 50px;
+    width:50px;
+    border-color: transparent;
+    margin-right: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+#slika:hover{
+    border:2px solid black;
+    background-color: #a3e9d4;
+    box-shadow: 0 15px 25px #a3e9d499 ;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+}
+#okvirSlika{
+    display: flex;
+}
+#opcije{
+    width:80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#pocetna{
+    transition:0.5s;
+}
+#opcije button{
+    padding:5px 5px 5px 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 50px;
+    transition:0.5s;
+    font-size: 15px;
+    border: none;
+    background-color: transparent;
+    color:white;
+    font-weight: 500px;
+}
+#opcije button:hover{
+    font-size: 130%;
+    color:black;
+    font-weight: normal;
+}
+#pocetna:hover{
+    background-color:#abff2e;
+    box-shadow:0 15px 25px #abff2e99;
+}
+#korpa:hover{
+    background-color:#fffc2e;
+    box-shadow:0 15px 25px #fffc2e99;
+}
+#proizvodi:hover{
+    background-color:#2ef8ff;
+    box-shadow:0 15px 25px #2ef8ff99;
+}
+#kompanija:hover{
+    background-color:#5381ff;
+    box-shadow:0 15px 25px #5381ff99;
+}
+#kontakt:hover{
+    background-color:#ff62d8;
+    box-shadow:0 15px 25px #ff62d899;
+}
+#menu{
+    display: flex;
+    border:2px solid black;
+    justify-content: space-between;
+    background-color: rgba(87, 66, 66,0.90);
+    height: 80px;
+
+}
+#menu li{
+    list-style: none;
+}
+#korisnickiPodaci{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top:80px;
+    right: 30px;
+    border: 2px solid black;
+    width: 200px;
+    text-align: center;
+    display: none;
+    background-color: #4affc9;
+    box-shadow: 0 15px 25px #4affc999 ;
+}
+#korisnickiPodaci li{
+    text-align:left;
+    margin-left: 20px;
+}
