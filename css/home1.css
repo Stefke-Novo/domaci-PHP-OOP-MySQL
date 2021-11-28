@@ -206,9 +206,6 @@ body{
     background-color: rgba(87, 66, 66,0.90);
     border-radius: 50px;
 }
-#korpa1 ul , #korpa1 li, #korpa1 div{
-    border:2px solid black;
-}
 #korpa1 div{
     display: flex;
     height: fit-content;
@@ -249,7 +246,6 @@ body{
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    border: 2px solid black;
     width: 100%;
     font-size: larger;
 }
@@ -300,4 +296,14 @@ body{
 }
 #korpa1 ul{
     margin-bottom: 40px;
+}
+.podaci img{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#korpa1 li{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
 }

@@ -71,15 +71,36 @@ if($_SESSION['korisnik']==null){
         <div id="korpa1" >
             <h2>Današnja kupovina :</h2>
             <ul>
-                <li class="proizvod">
+                <li class="proizvod" data-aos="fade-in">
                     <h3>Naziv proizvoda</h3>
                     <div class="podaci">
                         <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
                         <div class="teze">
-                            <p>Vrsta proizvoda: 250 din</p>
-                            <p>Cena proizvoda bez popusta: 250 din</p>
-                            <p>Sniženje : 250 din</p>
-                            <p>Cena proizvoda sa popustom: 250 din</p>
+                            <p>Vrsta proizvoda:<br> 250 din</p>
+                            <p>Cena proizvoda bez popusta:<br> 250 din</p>
+                            <p>Sniženje :<br> 250 din</p>
+                            <p>Cena proizvoda sa popustom:<br> 250 din</p>
+                        </div>
+                        <div class="opisIDugme">
+                            <p>Lorem ipsum dolor sit amet consectetur 
+                            adipisicing elit. Voluptatibus vitae id 
+                            recusandae officia repellendus rem, aliquid 
+                            nulla perferendis quo iure similique deserunt 
+                            eum iste obcaecati dolorem dolorum, iusto 
+                            maxime magni.</p>
+                            <button>Izbaci proizvod iz liste</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="proizvod" data-aos="fade-in">
+                    <h3>Naziv proizvoda</h3>
+                    <div class="podaci">
+                        <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
+                        <div class="teze">
+                            <p>Vrsta proizvoda:<br> 250 din</p>
+                            <p>Cena proizvoda bez popusta:<br> 250 din</p>
+                            <p>Sniženje :<br> 250 din</p>
+                            <p>Cena proizvoda sa popustom:<br> 250 din</p>
                         </div>
                         <div class="opisIDugme">
                             <p>Lorem ipsum dolor sit amet consectetur 
