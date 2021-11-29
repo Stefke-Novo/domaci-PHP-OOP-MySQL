@@ -123,6 +123,7 @@ if($_SESSION['korisnik']==null){
                     <h1>Naziv proizvoda</h1>
                     <p>opis proizvoda</p>
                     <h3>cena po jedinici</h3>
+                    <button>Kupi</button>
                 </div>
             </div>
         </div>
