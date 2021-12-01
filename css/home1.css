@@ -69,6 +69,10 @@
     background-color:#ff62d8;
     box-shadow:0 15px 25px #ff62d899;
 }
+#nalog:hover,#nalog:focus{
+    background-color:#ff8818;
+    box-shadow:0 15px 25px #ff881899;
+}
 #menu{
     display: flex;
     border:2px solid black;
@@ -336,8 +340,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    margin-bottom: auto;
     border-radius: 15px;
+    margin-bottom: auto;
 }
 .podaci1{
     display: flex;
@@ -346,13 +350,12 @@ body{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    height: 30%;
-    bottom: 0;
-    margin-bottom: 10px;
+    height: auto;
+    margin-bottom: 0px;
 }
 .podaci1 h1, .podaci1 p ,.podaci h3,.podaci1 button{
-    margin-top: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 .podaci1 button{
     border:none;
@@ -362,6 +365,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
+    bottom: 0px;
 }
 .podaci1 button:hover{
     background-color: lightblue;
@@ -369,4 +373,94 @@ body{
 .podaci1 button:active{
     background-color: darkblue;
     color:white;
+}
+#opisKompanije{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+#opisKompanije h1{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#opisKompanije div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+#opisKompanije div img, #opisKompanije div p{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#opisKompanije div p{
+    width:30%;
+    margin-right: 10%;
+}
+#slika11{
+    height: 800px;
+    width: 400px;
+    margin-left: 10%;
+}
+#kompanijaInfo{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+}
+#telefon,#telefon div{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+#telefon img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#telefon,#lokacija{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#telefon div, #telefon div h1{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: left;
+}
+#lokacija img{
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#lokacija div , #lokacija img{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#lokacija div{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+#naslovLokacija{
+    text-align: center;
+    margin-bottom: 30px;
+}
+#telefon div{
+    margin-bottom: 20px;
+}
+#stranicaPocetna{
+    flex-direction: column;
 }
