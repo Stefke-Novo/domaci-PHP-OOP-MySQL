@@ -11,7 +11,7 @@ function prikaziKorisnickePodatke(){
     console.log("Funkcija je pokrenuta 1");
     document.querySelectorAll(".polja").forEach(function(div) {
       if (div.id == id) {
-        div.style.display = div.style.display == "none" ? "block" : "none";
+        div.style.display = div.style.display == "none" ? "flex" : "none";
       } else {
         div.style.display = "none";
       }
@@ -29,4 +29,8 @@ function prikaziKorisnickePodatke(){
     if(iskljuceno){
         dugmici[0].style.display="flex";
     }
+  }
+  function funkcijaJeKliknuta(){
+    event.preventDefault();
+    console.log("Funkcija je pokrenuta");
   }

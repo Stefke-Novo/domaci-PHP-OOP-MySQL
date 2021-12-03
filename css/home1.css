@@ -14,9 +14,8 @@
     transition: 0.5s;
 }
 #slika:hover{
-    border:2px solid black;
     background-color: #a3e9d4;
-    box-shadow: 0 15px 25px #a3e9d499 ;
+    box-shadow: 0 15px 25px white;/*#a3e9d499 ;*/
     justify-content: center;
     height: 60px;
     width: 60px;
@@ -75,10 +74,13 @@
 }
 #menu{
     display: flex;
-    border:2px solid black;
     justify-content: space-between;
     background-color: rgba(87, 66, 66,0.90);
     height: 80px;
+    position: fixed;
+    width: 100%;
+    top:0px;
+    z-index: 200;
 
 }
 #menu li{
@@ -94,7 +96,7 @@
     width: 200px;
     text-align: center;
     display: none;
-    background-color: #4affc9;
+    background-image: linear-gradient(white,#4affc9);
     box-shadow: 0 15px 25px #4affc999 ;
     border-radius: 20px;
 }
@@ -317,6 +319,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     background-color: rgba(255, 255, 255, 0.7);
+
 }
 .proizvod1{
     width:20%;
@@ -462,5 +465,12 @@ body{
     margin-bottom: 20px;
 }
 #stranicaPocetna{
+    display: flex;
+    flex-direction: column;
+}
+#stranicaNalog{
+    display: none;
+}
+.polja{
     flex-direction: column;
 }

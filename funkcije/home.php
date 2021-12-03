@@ -1,12 +1,19 @@
 <?php
 require_once "../dbBrocker.php";
 require_once "../php klase/korisnik.php";
+require_once "../php klase/proizvod.php";
 $korisnik=new Korisnik();
 session_start();
 if($_SESSION['korisnik']==null){
     echo "Korisnik nije lepo prijavljen";
     die();
 }
+$proizvodi = Proizvod::pokupiProizvode($conn);
+if($proizvodi->num_rows==0){
+    echo "Nema proizvoda";
+    die();
+}else{
+    $korpaKupovina=array();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +31,9 @@ if($_SESSION['korisnik']==null){
             <button id="pocetna" onclick="togglediv('stranicaPocetna')">Pocetna</button>
             <button id="korpa" onclick="togglediv('stranicaKorpa')">Korpa</button>
             <button id="proizvodi" onclick="togglediv('stranicaProizvodi')">Proizvodi</button>
+            <button id="nalog" onclick="togglediv('stranicaNalog')">Vaš nalog</button>
             <button id="kompanija" onclick="togglediv('stranicaKompanija')">O kompaniji</button>
             <button id="kontakt" onclick="togglediv('stranicaKontakt')">kontakt</button>
-            <button id="nalog" onclick="togglediv('stranicaNalog')">Vaš nalog</button>
        </div>
        <div id="okvirSlika" >
            <img id="slika"src="https://cdn-icons-png.flaticon.com/512/149/149071.png" onclick="prikaziKorisnickePodatke()"/>
@@ -73,41 +80,16 @@ if($_SESSION['korisnik']==null){
             <h2>Današnja kupovina :</h2>
             <ul>
                 <li class="proizvod" data-aos="fade-in">
-                    <h3>Naziv proizvoda</h3>
+                    <h3></h3>
                     <div class="podaci">
                         <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
                         <div class="teze">
-                            <p>Vrsta proizvoda:<br> 250 din</p>
+                            <p>Ime proizvoda:<br></p>
                             <p>Količina:<br> 250 din</p>
-                            <p>Cena proizvoda sa popustom:<br> 250 din</p>
+                            <p>Cena proizvoda sa popustom:<br></p>
                         </div>
                         <div class="opisIDugme">
-                            <p>Lorem ipsum dolor sit amet consectetur 
-                            adipisicing elit. Voluptatibus vitae id 
-                            recusandae officia repellendus rem, aliquid 
-                            nulla perferendis quo iure similique deserunt 
-                            eum iste obcaecati dolorem dolorum, iusto 
-                            maxime magni.</p>
-                            <button>Izbaci proizvod iz liste</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="proizvod" data-aos="fade-in">
-                    <h3>Naziv proizvoda</h3>
-                    <div class="podaci">
-                        <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
-                        <div class="teze">
-                            <p>Vrsta proizvoda:<br> 250 din</p>
-                            <p>Količina:<br> 250 din</p>
-                            <p>Cena proizvoda sa popustom:<br> 250 din</p>
-                        </div>
-                        <div class="opisIDugme">
-                            <p>Lorem ipsum dolor sit amet consectetur 
-                            adipisicing elit. Voluptatibus vitae id 
-                            recusandae officia repellendus rem, aliquid 
-                            nulla perferendis quo iure similique deserunt 
-                            eum iste obcaecati dolorem dolorum, iusto 
-                            maxime magni.</p>
+                            <p></p>
                             <button>Izbaci proizvod iz liste</button>
                         </div>
                     </div>
@@ -117,17 +99,27 @@ if($_SESSION['korisnik']==null){
     </div>
     <div class="polja"id="stranicaProizvodi">
         <h1 class="naslov">Proizvodi</h1>
+        <?php 
+        $i=0;
+        while($proizvod = $proizvodi->fetch_array()):?>
+        <?php if($i%3==0){?>
         <div class="red">
+            <?php } ?>
             <div class="proizvod1">
-                <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
+                <img  src="<?php echo $proizvod["slika"]?>" alt=""></img>
                 <div class="podaci1">
-                    <h1>Naziv proizvoda</h1>
-                    <p>opis proizvoda</p>
-                    <h3>cena po jedinici</h3>
-                    <button>Kupi</button>
+                    <h1><?php echo $proizvod["ime"]?></h1>
+                    <p><?php echo $proizvod["opis"]?></p>
+                    <h3><?php echo $proizvod["cena"]?> din / <?php echo $proizvod["merna_jeidnica"]?></h3>
+                    <button onclick="<?php array_push($korpaKupovina,$proizvod)?> funkcijaJeKliknuta()">Kupi</button>
                 </div>
             </div>
+        <?php if($i%3==2){?>
         </div>
+        <?php } ?>
+        <?php $i++;?>
+        <?php endwhile;
+                    } //zatvoren else na 15. liniji koda?>
     </div>
     <div class="polja"id="stranicaKompanija">
         <h1 class="naslov">Kompanija</h1>
@@ -150,11 +142,11 @@ if($_SESSION['korisnik']==null){
             <div id="telefon">
                 <img src="https://images.unsplash.com/photo-1516055619834-586f8c75d1de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt=""/>
                 <div>
-                    <h1>Fiksni</h1>
-                    <h1>Viber</h1>
-                    <h1>WhatsApp</h1>
-                    <h1>Faks</h1>
-                    <h1>e-mail:superkupovina@gmail.com</h1>
+                    <h1>Fiksni: (+381)11 111 2233</h1>
+                    <h1>Viber: 065 123 4567</h1>
+                    <h1>WhatsApp: 065 123 4567</h1>
+                    <h1>Faks: 011 304 4567</h1>
+                    <h1>e-mail: superkupovina@gmail.com</h1>
                 </div>
             </div>
             <div id="lokacija">
@@ -168,8 +160,9 @@ if($_SESSION['korisnik']==null){
                 </div>
         </div>
     </div>
-    <div class="polja"id="stranicaNalog">
+    <div class="polja" id="stranicaNalog">
         <h1 class="naslov">Vaš nalog</h1>
+        <div></div>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
