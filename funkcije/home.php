@@ -141,7 +141,7 @@ if($proizvodi->num_rows==0){
                     <h1><?php echo $proizvod["ime"]?></h1>
                     <p><?php echo $proizvod["opis"]?></p>
                     <h3><?php echo $proizvod["cena"]?> din / <?php echo $proizvod["merna_jeidnica"]?></h3>
-                    <button onclick="pozvanaJeForma(<?php echo $proizvod['sifra'] ;?>,<?php echo $_SESSION['id']?>)">Kupi</button>
+                    <button onclick="pozvanaJeForma()">Kupi</button>
                 </div>
             </div>
         <?php if($i%3==2){?>
