@@ -1,7 +1,9 @@
 <?php
 require_once "..\dbBrocker.php";
 require_once "..\php klase\korisnik.php";
-session_start();
+if(session_id() == ''){
+    session_start();
+ }
 $korisnik1=new Korisnik();
 $_SESSION['korisnik']=null;
  if(isset($_POST['email1'])&&isset($_POST['sifra1'])){
@@ -24,5 +26,5 @@ $_SESSION['korisnik']=null;
     else{
         echo "korisnik ne postoji u bazi";
     }
- }
+}else ;
 ?>

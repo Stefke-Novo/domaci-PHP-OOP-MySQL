@@ -1,7 +1,9 @@
 <?php
 require_once "..\dbBrocker.php";
 require_once "..\php klase\korisnik.php";
-session_start();
+if(session_id() == ''){
+    session_start();
+ }
 $_SESSION['korisnik']=null;
 $korisnik2 = new Korisnik();
  if(isset($_POST['ime'])&&isset($_POST['prezime'])&&isset($_POST['email2'])&&isset($_POST['sifra'])&&isset($_POST['sifra1'])){

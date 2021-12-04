@@ -13,7 +13,8 @@ if($proizvodi->num_rows==0){
     echo "Nema proizvoda";
     die();
 }else{
-    $korpaKupovina=array();
+    $stvari=null;
+    $inicijalizovano=false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,8 +77,20 @@ if($proizvodi->num_rows==0){
     </div>
     <div class="polja"id="stranicaKorpa">
         <h1 class="naslov">Korpa</h1>
+        <div id="korpaDiv"><button id="dugmeKorpa">Ponesite korpu</button></div>
+        <form id="imeKorpeForma">
+            <h1>Korisnicki e-mail:</h1>
+            <input id="korisnikovEmail"type="text" name="emailKorisnika" value="<?php echo $_SESSION['korisnik']->email; ?>" disabled/>
+            <h1 for="imeKorpe1">Unesite ime korpe:</h1>
+            <input type="text" id="imeKorpe"name="imeKorpe1">
+            <div>
+                <button id="dugmeImeKorpe" onclick="<?php $inicijalizovano=true;?>">Unesi</button>
+                <button id="NazadKorpa" onclick="KlikniNazad()">Nazad</button>
+            </div>
+        </form>
         <div id="korpa1" >
             <h2>Današnja kupovina :</h2>
+            <?php if($stvari==null){ ?>
             <ul>
                 <li class="proizvod" data-aos="fade-in">
                     <h3></h3>
@@ -95,10 +108,27 @@ if($proizvodi->num_rows==0){
                     </div>
                 </li>
             </ul>
+            <?php }else{ ?>
+                <img id="nemaNista" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_FUr7KRRq9Eu8_QwritHxuCMcWQGU3KjCvQ&usqp=CAU" alt="">
+                <h1 id="naslovNista">Trenutno ni jedan proizvod nije kupljen</h1>
+                <?php }?>
         </div>
     </div>
     <div class="polja"id="stranicaProizvodi">
         <h1 class="naslov">Proizvodi</h1>
+        <form id="formaKolicina">
+            <?php if($inicijalizovano==true){ ?>
+            <h1 for="kolicina">Koliko kg zelite da kupite ?</h1>
+            <input id="kolicinaRobe" type="text" name="kolicina"/>
+            <div>
+            <button id="potvrdi" onclick="Potvrdi()">Potvrdi</button>
+            <?php }else{?>
+                <h1>Niste poneli korpu</h1>
+                <div>
+            <?php }?>
+            <button id="nazad" onclick="Nazad()">nazad</button>
+            </div>
+        </form>
         <?php 
         $i=0;
         while($proizvod = $proizvodi->fetch_array()):?>
@@ -111,15 +141,17 @@ if($proizvodi->num_rows==0){
                     <h1><?php echo $proizvod["ime"]?></h1>
                     <p><?php echo $proizvod["opis"]?></p>
                     <h3><?php echo $proizvod["cena"]?> din / <?php echo $proizvod["merna_jeidnica"]?></h3>
-                    <button onclick="<?php array_push($korpaKupovina,$proizvod)?> funkcijaJeKliknuta()">Kupi</button>
+                    <button onclick="pozvanaJeForma(<?php echo $proizvod['sifra'] ;?>,<?php echo $_SESSION['id']?>)">Kupi</button>
                 </div>
             </div>
         <?php if($i%3==2){?>
         </div>
         <?php } ?>
         <?php $i++;?>
-        <?php endwhile;
-                    } //zatvoren else na 15. liniji koda?>
+        <?php endwhile;?>
+        <?php if($i%3==0||$i%3==1){?>
+        </div>
+        <?php } ?>
     </div>
     <div class="polja"id="stranicaKompanija">
         <h1 class="naslov">Kompanija</h1>
@@ -164,9 +196,10 @@ if($proizvodi->num_rows==0){
         <h1 class="naslov">Vaš nalog</h1>
         <div></div>
     </div>
+<?php } //zatvoren else na 15. liniji koda?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="../js/home.js"></script>
+<script src="../js/home1.js"></script>
 </html>
