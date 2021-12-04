@@ -34,17 +34,6 @@ function prikaziKorisnickePodatke(){
     event.preventDefault();
     var forma=document.getElementById("formaKolicina");
     forma.style.display='flex';
-    document.getElementById("potvrdi").addEventListener("click",function(){
-      $("formaKolicina").submit(function(){
-       $kolicina=document.getElementById("kolicinaRobe").value;
-        if(!isNaN($kolicina)){
-          alert("Niste ukucali broj");
-          return;
-        }else{
-          
-        }
-      });
-    });
     console.log(forma);
   }
   function Nazad(){
@@ -78,6 +67,14 @@ $("#imeKorpeForma").submit(function(){
         if(res=="korpa je uspesno sacuvana"){
             alert("korpa je uspesno sacuvana");
             document.getElementById("korpa1").style.display='flex';
+            document.getElementById("korpaNijePoneta").style.display='none';
+              var komponente =document.getElementsByClassName("korpaPoneta");
+              for(var i=0;i<komponente.length;i++){
+                komponente[i].style.display='flex';
+                if(komponente[i]=document.getElementById("potvrdi")){
+                  komponente[i].style.textAlign='center';
+                }
+              }
         }else alert("Korpa nije sacuvana: "+res);
         console.log(res=="korpa je uspesno sacuvana");
         console.log(res);

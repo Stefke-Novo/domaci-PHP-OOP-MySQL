@@ -84,7 +84,7 @@ if($proizvodi->num_rows==0){
             <h1 for="imeKorpe1">Unesite ime korpe:</h1>
             <input type="text" id="imeKorpe"name="imeKorpe1">
             <div>
-                <button id="dugmeImeKorpe" onclick="<?php $inicijalizovano=true;?>">Unesi</button>
+                <button id="dugmeImeKorpe" onsubmit="<?php $inicijalizovano=true; ?>">Unesi</button>
                 <button id="NazadKorpa" onclick="KlikniNazad()">Nazad</button>
             </div>
         </form>
@@ -117,17 +117,11 @@ if($proizvodi->num_rows==0){
     <div class="polja"id="stranicaProizvodi">
         <h1 class="naslov">Proizvodi</h1>
         <form id="formaKolicina">
-            <?php if($inicijalizovano==true){ ?>
-            <h1 for="kolicina">Koliko kg zelite da kupite ?</h1>
-            <input id="kolicinaRobe" type="text" name="kolicina"/>
-            <div>
-            <button id="potvrdi" onclick="Potvrdi()">Potvrdi</button>
-            <?php }else{?>
-                <h1>Niste poneli korpu</h1>
-                <div>
-            <?php }?>
+            <h1 class="korpaPoneta" for="kolicina">Koliko kg zelite da kupite ?</h1>
+            <input class="korpaPoneta" id="kolicinaRobe" type="text" name="kolicina"/>
+            <button class="korpaPoneta" id="potvrdi" onclick="Potvrdi()">Potvrdi</button>
+                <h1 id="korpaNijePoneta">Niste poneli korpu</h1>
             <button id="nazad" onclick="Nazad()">nazad</button>
-            </div>
         </form>
         <?php 
         $i=0;

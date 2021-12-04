@@ -500,6 +500,10 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+#potvrdi{
+    text-align: center;
+    justify-content: center;
+}
 #formaKolicina button:hover,#formaKolicina button:focus{
     color:black;
     border-radius: 15px;
@@ -629,4 +633,10 @@ body{
 #korpa1{
     margin-bottom: 30px;
     margin-top: 30px;
+}
+.korpaPoneta{
+    display: none;
+}
+#korpaNijePoneta{
+    display: flex;
 }
