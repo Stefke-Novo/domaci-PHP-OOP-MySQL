@@ -14,7 +14,6 @@ if($proizvodi->num_rows==0){
     die();
 }else{
     $stvari=null;
-    $inicijalizovano=false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +83,7 @@ if($proizvodi->num_rows==0){
             <h1 for="imeKorpe1">Unesite ime korpe:</h1>
             <input type="text" id="imeKorpe"name="imeKorpe1">
             <div>
-                <button id="dugmeImeKorpe" onsubmit="<?php $inicijalizovano=true; ?>">Unesi</button>
+                <button id="dugmeImeKorpe">Unesi</button>
                 <button id="NazadKorpa" onclick="KlikniNazad()">Nazad</button>
             </div>
         </form>
@@ -117,9 +116,15 @@ if($proizvodi->num_rows==0){
     <div class="polja"id="stranicaProizvodi">
         <h1 class="naslov">Proizvodi</h1>
         <form id="formaKolicina">
+            <h1 id="korisnickiEmail2"class="korpaPoneta">Korisnicki e-mail:</h1>
+            <input class="korpaPoneta" type="text" name="email21" id="email22" value="<?php echo $_SESSION['korisnik']->email; ?>" style="text-align:center;" disabled />
+            <h1 class="korpaPoneta">ID proizvoda :</h1>
+            <input class="korpaPoneta" type="text" name="IDproizvoda" id="IDProizvoda1" disabled/>
+            <h1 class="korpaPoneta">Ime korpe :</h1>
+            <input class="korpaPoneta" type="text" name="imeKorpe31" id="ImeKorpe32" disabled/>
             <h1 class="korpaPoneta" for="kolicina">Koliko kg zelite da kupite ?</h1>
-            <input class="korpaPoneta" id="kolicinaRobe" type="text" name="kolicina"/>
-            <button class="korpaPoneta" id="potvrdi" onclick="Potvrdi()">Potvrdi</button>
+            <input type="number" class="korpaPoneta" id="kolicinaRobe" type="text" name="kolicina"/>
+            <button class="korpaPoneta" id="potvrdi" >Potvrdi</button>
                 <h1 id="korpaNijePoneta">Niste poneli korpu</h1>
             <button id="nazad" onclick="Nazad()">nazad</button>
         </form>
@@ -134,8 +139,9 @@ if($proizvodi->num_rows==0){
                 <div class="podaci1">
                     <h1><?php echo $proizvod["ime"]?></h1>
                     <p><?php echo $proizvod["opis"]?></p>
-                    <h3><?php echo $proizvod["cena"]?> din / <?php echo $proizvod["merna_jeidnica"]?></h3>
-                    <button onclick="pozvanaJeForma()">Kupi</button>
+                    <h3><?php echo $proizvod["cena"]?> din / <?php echo $proizvod["merna_jeidnica"];?></h3>
+                    <?php $sifraproiazvoda=$proizvod["proizvodID"];$imeKorpe=$_SESSION["imeKorpe"];?>
+                    <button onclick="pozvanaJeForma('<?php echo $sifraproiazvoda;?>','<?php echo $imeKorpe; ?>')" >Kupi</button>
                 </div>
             </div>
         <?php if($i%3==2){?>
@@ -143,7 +149,7 @@ if($proizvodi->num_rows==0){
         <?php } ?>
         <?php $i++;?>
         <?php endwhile;?>
-        <?php if($i%3==0||$i%3==1){?>
+        <?php if(!($i%3==0)){?>
         </div>
         <?php } ?>
     </div>
@@ -188,7 +194,7 @@ if($proizvodi->num_rows==0){
     </div>
     <div class="polja" id="stranicaNalog">
         <h1 class="naslov">Vaš nalog</h1>
-        <div></div>
+        <div><p><?php echo $imeKorpe;?></p></div>
     </div>
 <?php } //zatvoren else na 15. liniji koda?>
 </body>

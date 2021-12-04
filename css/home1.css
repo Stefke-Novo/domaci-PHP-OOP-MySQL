@@ -476,9 +476,9 @@ body{
 }
 #formaKolicina{
     background-color: rgba(0, 0, 0,0.7);
-    margin-left:15%;
+    margin-left:25%;
     height: 500px;
-    width: 50%;
+    width: 30%;
     display: none;
     flex-direction: column;
     justify-content: space-evenly;
@@ -488,7 +488,7 @@ body{
 }
 #formaKolicina h1{
     color: white;
-    font-size: 55px;
+    font-size: 30px;
 }
 #formaKolicina button{
     width: 300px;

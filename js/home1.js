@@ -30,11 +30,14 @@ function prikaziKorisnickePodatke(){
         dugmici[0].style.display="flex";
     }
   }
-  function pozvanaJeForma($IDproizvoda,$IDkorpe){
+  function pozvanaJeForma($IDProizvoda,$imeKorpe){
     event.preventDefault();
+    console.log("ID proizvoda : "+$IDProizvoda);
+    console.log("Ime korpe : "+$imeKorpe);
     var forma=document.getElementById("formaKolicina");
     forma.style.display='flex';
-    console.log(forma);
+    document.getElementById("IDProizvoda1").value=$IDProizvoda;
+    document.getElementById("ImeKorpe32").value=$imeKorpe;
   }
   function Nazad(){
     event.preventDefault();
@@ -84,4 +87,36 @@ $("#imeKorpeForma").submit(function(){
         console.error('Sledeca greska se desila> '+textStatus, errorThrown)
     });
     document.getElementById("korisnikovEmail").disabled=true;
+});
+function Potvrdi(){
+  event.preventDefault();
+}
+$("#potvrdi").click(function(){
+  event.preventDefault();
+  document.getElementById("email22").disabled=false;
+  document.getElementById("IDProizvoda1").disabled=false;
+  document.getElementById("ImeKorpe32").disabled=false;
+  var kolicina =document.getElementById("kolicinaRobe").value;
+  if(!isNaN(kolicina)){
+    alert("Nije unesen broj");
+    return;
+  }
+  var serijalizacija=$("#formaKolicina").serialize();
+  console.log(serijalizacija);
+  req=$.ajax({
+    url:"kupovina.php",
+    type:"post",
+    data:serijalizacija
+  });
+  req.done(function(res, textStatus, jqXHR){
+    if(res=="uspesno ste kupili proizvod"){
+      alert("uspesno ste kupili proizvod");
+  }else alert("Niste kupili proizvod: "+res);
+  console.log(res);
+  });
+  req.fail(function(jqXHR, textStatus, errorThrown){
+  console.error('Sledeca greska se desila> '+textStatus, errorThrown)});
+  document.getElementById("email22").disabled=true;
+  document.getElementById("IDProizvoda1").disabled=true;
+  document.getElementById("ImeKorpe32").disabled=true;
 });
