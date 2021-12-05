@@ -92,7 +92,6 @@
     flex-direction: column;
     top:80px;
     right: 30px;
-    border: 2px solid black;
     width: 200px;
     text-align: center;
     display: none;
@@ -209,7 +208,7 @@ body{
     flex-direction: column;
     background-color: rgba(87, 66, 66,0.90);
     border-radius: 50px;
-    display: none;
+    display: flex;
 }
 #korpa1 div{
     display: flex;
@@ -284,8 +283,6 @@ body{
     font-size: 20px;
 }
 #korpa1 h2{
-    margin-left: auto;
-    margin-right: auto;
     font-size: 36px;
     color:  white;
     margin-top: 30px;
@@ -639,4 +636,31 @@ body{
 }
 #korpaNijePoneta{
     display: flex;
+}
+#korpa1 div{
+    display: flex;
+    justify-content: space-evenly;
+}
+#ucitavanje{
+    height: 80px;
+    width: 260px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 15px;
+    background-color: transparent;
+    border:none;
+    color:white;
+    font-size: 20px;
+    transition: all 1.2s;
+}
+#ucitavanje:hover{
+    background-color: gold;
+    color: black;
+}
+#ucitavanje:active{
+    background-color: rgb(187, 159, 0);
+}
+.opisIDugme p{
+    display: flex;
+    justify-content: center;
 }

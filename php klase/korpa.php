@@ -22,5 +22,13 @@ class Korpa{
         $q="INSERT INTO korpaproizvoda(korisnikID,imeKorpe,proizvodID,kolicina) values('$korisnikID','$imeKorpe','$proizvodID','$kolicina');";
         return $conn->query($q);
     }
+    public static function nadjiProizvod($conn,$proizvodID){
+        $q="SELECT * FROM proizvod where proizvodID='$proizvodID';";
+        return $conn->query($q);
+    }
+    public static function pronadjiIDProizvoda($conn,$korisnikID,$imeKorpe){
+        $q="SELECT proizvodID FROM korpaproizvoda where korisnikID='$korisnikID' and imeKorpe='$imeKorpe';";
+        return $conn->query($q);
+    }
 }
 ?>

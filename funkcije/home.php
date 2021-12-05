@@ -6,6 +6,7 @@ $korisnik=new Korisnik();
 session_start();
 if($_SESSION['korisnik']==null){
     echo "Korisnik nije lepo prijavljen";
+    $_SESSION["proizvodi"]=null;
     die();
 }
 $proizvodi = Proizvod::pokupiProizvode($conn);
@@ -88,26 +89,32 @@ if($proizvodi->num_rows==0){
             </div>
         </form>
         <div id="korpa1" >
-            <h2>Današnja kupovina :</h2>
-            <?php if($stvari==null){ ?>
+            <div>
+                <h2>Današnja kupovina :</h2>
+                <?php $korisnickiID=$_SESSION["korisnik"]->korisnikID; $imeKorpe1=$_SESSION["imeKorpe"];?>
+                <button id="ucitavanje" onclick="ucitajProizvode('<?php echo $korisnickiID ;?> ','<?php echo $imeKorpe1; ?>')">Prikaži sadržaj korpe</button>
+            </div>
+            <?php if(!empty($_SESSION["proizvodi"])){ ?>
             <ul>
+                <?php for($i=0;$i<count($_SESSION["proizvodi"]);$i++):  ?>
                 <li class="proizvod" data-aos="fade-in">
                     <h3></h3>
                     <div class="podaci">
-                        <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
+                        <img src="<?php echo $_SESSION["proizvodi"][$i]->slika; ?>" alt="">
                         <div class="teze">
-                            <p>Ime proizvoda:<br></p>
+                            <p>Ime proizvoda:<br><?php echo $_SESSION["proizvodi"][$i]->ime; ?></p>
                             <p>Količina:<br> 250 din</p>
-                            <p>Cena proizvoda sa popustom:<br></p>
+                            <p>Cena proizvoda sa popustom:<br><?php echo $_SESSION["proizvodi"][$i]->popust ?> din</p>
                         </div>
                         <div class="opisIDugme">
-                            <p></p>
+                            <p><?php echo $_SESSION["proizvodi"][$i]->opis ?></p>
                             <button>Izbaci proizvod iz liste</button>
                         </div>
                     </div>
                 </li>
+                <?php endfor;?>
             </ul>
-            <?php }else{ ?>
+            <?php }else{?>
                 <img id="nemaNista" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_FUr7KRRq9Eu8_QwritHxuCMcWQGU3KjCvQ&usqp=CAU" alt="">
                 <h1 id="naslovNista">Trenutno ni jedan proizvod nije kupljen</h1>
                 <?php }?>
@@ -116,16 +123,19 @@ if($proizvodi->num_rows==0){
     <div class="polja"id="stranicaProizvodi">
         <h1 class="naslov">Proizvodi</h1>
         <form id="formaKolicina">
-            <h1 id="korisnickiEmail2"class="korpaPoneta">Korisnicki e-mail:</h1>
-            <input class="korpaPoneta" type="text" name="email21" id="email22" value="<?php echo $_SESSION['korisnik']->email; ?>" style="text-align:center;" disabled />
-            <h1 class="korpaPoneta">ID proizvoda :</h1>
-            <input class="korpaPoneta" type="text" name="IDproizvoda" id="IDProizvoda1" disabled/>
-            <h1 class="korpaPoneta">Ime korpe :</h1>
-            <input class="korpaPoneta" type="text" name="imeKorpe31" id="ImeKorpe32" disabled/>
-            <h1 class="korpaPoneta" for="kolicina">Koliko kg zelite da kupite ?</h1>
-            <input type="number" class="korpaPoneta" id="kolicinaRobe" type="text" name="kolicina"/>
-            <button class="korpaPoneta" id="potvrdi" >Potvrdi</button>
-                <h1 id="korpaNijePoneta">Niste poneli korpu</h1>
+            <?php if(!empty($_SESSION["imeKorpe"])){ ?>
+            <h1 id="korisnickiEmail2">Korisnicki e-mail:</h1>
+            <input type="text" name="email21" id="email22" value="<?php echo $_SESSION['korisnik']->email; ?>" style="text-align:center;" disabled />
+            <h1 >ID proizvoda :</h1>
+            <input type="text" name="IDproizvoda" id="IDProizvoda1" disabled/>
+            <h1 >Ime korpe :</h1>
+            <input  type="text" name="imeKorpe31" id="ImeKorpe32" disabled/>
+            <h1  for="kolicina">Koliko kg zelite da kupite ?</h1>
+            <input type="number"  id="kolicinaRobe" type="text" name="kolicina"/>
+            <button  id="potvrdi" >Potvrdi</button>
+            <?php }else{?>
+                <h1  id="korpaNijePoneta">Niste poneli korpu</h1>
+                <?php } ?>
             <button id="nazad" onclick="Nazad()">nazad</button>
         </form>
         <?php 
@@ -194,7 +204,7 @@ if($proizvodi->num_rows==0){
     </div>
     <div class="polja" id="stranicaNalog">
         <h1 class="naslov">Vaš nalog</h1>
-        <div><p><?php echo $imeKorpe;?></p></div>
+        <div><p><?php echo print_r($_SESSION);?></p></div>
     </div>
 <?php } //zatvoren else na 15. liniji koda?>
 </body>

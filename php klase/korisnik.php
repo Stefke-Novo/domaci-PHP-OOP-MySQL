@@ -1,6 +1,7 @@
 <?php
 require_once "..\dbBrocker.php";
 class Korisnik{
+    public $korisnikID;
     public $ime;
     public $prezime;
     public $email;

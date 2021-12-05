@@ -96,11 +96,6 @@ $("#potvrdi").click(function(){
   document.getElementById("email22").disabled=false;
   document.getElementById("IDProizvoda1").disabled=false;
   document.getElementById("ImeKorpe32").disabled=false;
-  var kolicina =document.getElementById("kolicinaRobe").value;
-  if(!isNaN(kolicina)){
-    alert("Nije unesen broj");
-    return;
-  }
   var serijalizacija=$("#formaKolicina").serialize();
   console.log(serijalizacija);
   req=$.ajax({
@@ -120,3 +115,20 @@ $("#potvrdi").click(function(){
   document.getElementById("IDProizvoda1").disabled=true;
   document.getElementById("ImeKorpe32").disabled=true;
 });
+function ucitajProizvode(korisnickiID,imeKorpe){
+  console.log("Funkcija ucitavanja je pokrenuta");
+  console.log("korisnikID="+korisnickiID+"&imeKorpe="+imeKorpe);
+  req=$.ajax({
+    url:"uzmiListu.php",
+    type:"post",
+    data:"korisnikID="+korisnickiID.trim()+"&imeKorpe="+imeKorpe.trim()
+  });
+  req.done(function(res, textStatus, jqXHR){
+    if(res=="vracena je lista"){
+      alert("uspesno su ucitani proizvodi");
+  }else alert("Nisu ucitani proizvodi: "+res);
+  console.log(res);
+  });
+  req.fail(function(jqXHR, textStatus, errorThrown){
+  console.error('Sledeca greska se desila> '+textStatus, errorThrown)});
+};
