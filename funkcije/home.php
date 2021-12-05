@@ -15,6 +15,9 @@ if($proizvodi->num_rows==0){
     die();
 }else{
     $stvari=null;
+    if(!isset($_SESSION["imeKorpe"])){
+        $_SESSION["imeKorpe"]=null;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,7 +97,7 @@ if($proizvodi->num_rows==0){
                 <?php $korisnickiID=$_SESSION["korisnik"]->korisnikID; $imeKorpe1=$_SESSION["imeKorpe"];?>
                 <button id="ucitavanje" onclick="ucitajProizvode('<?php echo $korisnickiID ;?> ','<?php echo $imeKorpe1; ?>')">Prikaži sadržaj korpe</button>
             </div>
-            <?php if(!empty($_SESSION["proizvodi"])){ ?>
+            <?php if(!empty($_SESSION["proizvodi"])&&!empty($_SESSION["kolicine"])){ $ukupnaCena=0;?>
             <ul>
                 <?php for($i=0;$i<count($_SESSION["proizvodi"]);$i++):  ?>
                 <li class="proizvod" data-aos="fade-in">
@@ -103,17 +106,22 @@ if($proizvodi->num_rows==0){
                         <img src="<?php echo $_SESSION["proizvodi"][$i]->slika; ?>" alt="">
                         <div class="teze">
                             <p>Ime proizvoda:<br><?php echo $_SESSION["proizvodi"][$i]->ime; ?></p>
-                            <p>Količina:<br> 250 din</p>
-                            <p>Cena proizvoda sa popustom:<br><?php echo $_SESSION["proizvodi"][$i]->popust ?> din</p>
+                            <p>Količina:<br> <?php echo $_SESSION["kolicine"][$i];?> <?php echo $_SESSION["proizvodi"][$i]->merna_jeidnica;?></p>
+                            <p>Cena proizvoda sa popustom:<br><?php echo $_SESSION["proizvodi"][$i]->popust ?> din / <?php echo $_SESSION["proizvodi"][$i]->merna_jeidnica;?></p>
                         </div>
                         <div class="opisIDugme">
                             <p><?php echo $_SESSION["proizvodi"][$i]->opis ?></p>
-                            <button>Izbaci proizvod iz liste</button>
+                            <div>
+                                <button>Izbaci proizvod iz liste</button>
+                                <button>Izmeni količinu</button>
+                            </div>
                         </div>
                     </div>
                 </li>
+                <?php $ukupnaCena+=($_SESSION["proizvodi"][$i]->popust)*($_SESSION["kolicine"][$i]);?>
                 <?php endfor;?>
             </ul>
+            <h1>Ukupna cena: <?php echo $ukupnaCena?> din</h1>
             <?php }else{?>
                 <img id="nemaNista" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_FUr7KRRq9Eu8_QwritHxuCMcWQGU3KjCvQ&usqp=CAU" alt="">
                 <h1 id="naslovNista">Trenutno ni jedan proizvod nije kupljen</h1>

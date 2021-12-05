@@ -10,7 +10,7 @@ if(isset($_POST["email21"])&&isset($_POST["IDproizvoda"])&&isset($_POST["imeKorp
     $proizvod=Korpa::nadjiProizvod($conn,$IDProizvoda);
     $korisnickiID=Korpa::nadjiIDKorisnika($conn,$email);
     if($korisnickiID==false){
-    echo "KorsnickiID nije ucitan";
+    echo "Niste nista kupili. Proverite da li ste uzeli korpu za kupovinu.";
     die();
     }
     $odgovor=mysqli_fetch_row($korisnickiID);

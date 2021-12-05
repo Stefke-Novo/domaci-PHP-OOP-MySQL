@@ -30,5 +30,9 @@ class Korpa{
         $q="SELECT proizvodID FROM korpaproizvoda where korisnikID='$korisnikID' and imeKorpe='$imeKorpe';";
         return $conn->query($q);
     }
+    public static function potraziKolicine($conn,$korisnikID,$imeKorpe,$proizvodID){
+        $q="SELECT kolicina FROM korpaproizvoda where korisnikID='$korisnikID'and imeKorpe='$imeKorpe'and proizvodID='$proizvodID';";
+        return $conn->query($q);
+    }
 }
 ?>

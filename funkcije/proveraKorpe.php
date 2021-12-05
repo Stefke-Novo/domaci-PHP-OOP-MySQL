@@ -18,7 +18,7 @@ if(isset($_POST["emailKorisnika"])&&isset($_POST["imeKorpe1"])){
         $odgovor1=Korpa::unesiKorpu($conn,$odgovor[0],$imeKorpe,date('d.m.Y'));
         if($odgovor1==true)
         echo "korpa je uspesno sacuvana";
-        else echo "transakcija nije uspesna";
+        else echo "Tom korpom ste vec jednom kupovali proizvode";
     }
 }
 ?>

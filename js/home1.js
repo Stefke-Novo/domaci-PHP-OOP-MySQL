@@ -69,15 +69,7 @@ $("#imeKorpeForma").submit(function(){
     req.done(function(res, textStatus, jqXHR){
         if(res=="korpa je uspesno sacuvana"){
             alert("korpa je uspesno sacuvana");
-            document.getElementById("korpa1").style.display='flex';
-            document.getElementById("korpaNijePoneta").style.display='none';
-              var komponente =document.getElementsByClassName("korpaPoneta");
-              for(var i=0;i<komponente.length;i++){
-                komponente[i].style.display='flex';
-                if(komponente[i]=document.getElementById("potvrdi")){
-                  komponente[i].style.textAlign='center';
-                }
-              }
+            location.reload();
         }else alert("Korpa nije sacuvana: "+res);
         console.log(res=="korpa je uspesno sacuvana");
         console.log(res);
@@ -126,6 +118,7 @@ function ucitajProizvode(korisnickiID,imeKorpe){
   req.done(function(res, textStatus, jqXHR){
     if(res=="vracena je lista"){
       alert("uspesno su ucitani proizvodi");
+      location.reload();
   }else alert("Nisu ucitani proizvodi: "+res);
   console.log(res);
   });
