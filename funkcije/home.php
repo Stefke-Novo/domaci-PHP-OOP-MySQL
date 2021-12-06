@@ -35,7 +35,6 @@ if($proizvodi->num_rows==0){
             <button id="pocetna" onclick="togglediv('stranicaPocetna')">Pocetna</button>
             <button id="korpa" onclick="togglediv('stranicaKorpa')">Korpa</button>
             <button id="proizvodi" onclick="togglediv('stranicaProizvodi')">Proizvodi</button>
-            <button id="nalog" onclick="togglediv('stranicaNalog')">Vaš nalog</button>
             <button id="kompanija" onclick="togglediv('stranicaKompanija')">O kompaniji</button>
             <button id="kontakt" onclick="togglediv('stranicaKontakt')">kontakt</button>
        </div>
@@ -87,9 +86,32 @@ if($proizvodi->num_rows==0){
             <h1 for="imeKorpe1">Unesite ime korpe:</h1>
             <input type="text" id="imeKorpe"name="imeKorpe1">
             <div>
-                <button id="dugmeImeKorpe">Unesi</button>
+                <button id="dugmeImeKorpe" onclick="promeniKolicinu()">Unesi</button>
                 <button id="NazadKorpa" onclick="KlikniNazad()">Nazad</button>
             </div>
+        </form>
+        <form id="izmenaProizvoda123">
+            <label for="">ID korisnika: </label>
+            <input type="text" id="IDkorisnikaP" name="korisnikID1" disabled/>
+            <label for="">Ime korpe :</label>
+            <input type="text" id="imeKorpeP" name="imeKorpe1" disabled/>
+            <label for="">ID proizvoda :</label>
+            <input type="text" id="IDproizvodaP" name="proizvodID1" disabled/>
+            <label for="">Kolicina :</label>
+            <input type="number" id="kolicinaP" name="kolicina1"/>
+            <button id="udji">Izmeni</button>
+            <button id="izadji" onclick="izadji12()">Izađi</button>
+        </form>
+        <form id="izmenaProizvoda1234">
+            <h1>Da li zelite da obrisete proizvod ?</h1>
+            <label for="">ID korisnika: </label>
+            <input type="text" id="IDkorisnikaP1" name="korisnikID1" disabled/>
+            <label for="">Ime korpe :</label>
+            <input type="text" id="imeKorpeP1" name="imeKorpe1" disabled/>
+            <label for="">ID proizvoda :</label>
+            <input type="text" id="IDproizvodaP1" name="proizvodID1" disabled/>
+            <button id="obrisi">Obriši</button>
+            <button id="izadji" onclick="izadji123()">Izađi</button>
         </form>
         <div id="korpa1" >
             <div>
@@ -112,8 +134,9 @@ if($proizvodi->num_rows==0){
                         <div class="opisIDugme">
                             <p><?php echo $_SESSION["proizvodi"][$i]->opis ?></p>
                             <div>
-                                <button>Izbaci proizvod iz liste</button>
-                                <button>Izmeni količinu</button>
+                                <?php $sifraproizvoda=$_SESSION["proizvodi"][$i]->proizvodID;$kolicinaProizvoda=$_SESSION["kolicine"][$i];$imeKorpePromena=$_SESSION["imeKorpe"];$korisnickiIDPromena=$_SESSION["korisnik"]->korisnikID; ?>
+                                <button onclick="obrisiProizvod('<?php echo $korisnickiID;?>','<?php echo $imeKorpePromena;?>','<?php echo $sifraproizvoda;?>')">Izbaci proizvod iz liste</button>
+                                <button onclick="izmeniProizvodUListi('<?php echo $korisnickiID;?>','<?php echo $imeKorpePromena;?>','<?php echo $sifraproizvoda;?>','<?php echo $kolicinaProizvoda;?>')">Izmeni količinu</button>
                             </div>
                         </div>
                     </div>
@@ -178,10 +201,10 @@ if($proizvodi->num_rows==0){
                 <h1>Uvek smo tu za vas</h1>
                 <div>
                     <img id="slika11"src="https://images.unsplash.com/photo-1603226301024-e8461eb82e35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80" alt="">
-                    <p><b>Misija :<br>
-                          Kvalitet :<br>
-                          Sreća :<br>
-                          Poverenje:</b> </p>
+                    <p id="nekiPasus"><b>Misija :</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+                        <b>Kvalitet :</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+                        <b>Sreća :</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+                        <b>Poverenje:</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
                 </div>
             </div>
         </div>
@@ -209,10 +232,6 @@ if($proizvodi->num_rows==0){
                     </div>
                 </div>
         </div>
-    </div>
-    <div class="polja" id="stranicaNalog">
-        <h1 class="naslov">Vaš nalog</h1>
-        <div><p><?php echo print_r($_SESSION);?></p></div>
     </div>
 <?php } //zatvoren else na 15. liniji koda?>
 </body>

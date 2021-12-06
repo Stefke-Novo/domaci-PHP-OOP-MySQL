@@ -664,3 +664,97 @@ body{
     display: flex;
     justify-content: center;
 }
+#izmenaProizvoda123{
+    width: 35%;
+    position:fixed;
+    top: 100px;
+    left:33%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 600px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0,0.5);
+    background-color: rgba(0, 0, 0,0.7);
+    z-index: 100;
+}
+#izmenaProizvoda123 *{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#izmenaProizvoda123 button{
+    width: 100px;
+    font-size: 24px;
+    border: none;
+    transition: all 0.5s;
+    border:none;
+    background-color: white;
+}
+#izmenaProizvoda123 label{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+#izmenaProizvoda123 input{
+    font-size: larger;
+    width: 40%;
+    text-align: center;
+}
+#izmenaProizvoda123 button:hover,#izmenaProizvoda123 button:focus{
+    background-color: goldenrod;
+    color: white;
+    border-radius: 15px;
+}
+#izmenaProizvoda123 button:active{
+    background-color: gold;
+}
+#izmenaProizvoda1234{
+    width: 35%;
+    position:fixed;
+    top: 100px;
+    left:33%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 600px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0,0.5);
+    background-color: rgba(0, 0, 0,0.7);
+    z-index: 100;
+}
+#izmenaProizvoda1234 *{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#izmenaProizvoda1234 button{
+    width: 100px;
+    font-size: 24px;
+    border: none;
+    transition: all 0.5s;
+    border:none;
+    background-color: white;
+}
+#izmenaProizvoda1234 label{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+#izmenaProizvoda1234 input{
+    font-size: larger;
+    width: 40%;
+    text-align: center;
+}
+#izmenaProizvoda1234 button:hover,#izmenaProizvoda123 button:focus{
+    background-color: goldenrod;
+    color: white;
+    border-radius: 15px;
+}
+#izmenaProizvoda1234 button:active{
+    background-color: gold;
+}
+#nekiPasus{
+    background-color:white ;
+    padding:20px 20px 20px 20px ;
+    border-radius: 50px;
+    text-align: center;
+}

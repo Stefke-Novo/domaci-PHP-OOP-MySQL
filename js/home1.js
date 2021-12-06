@@ -125,3 +125,78 @@ function ucitajProizvode(korisnickiID,imeKorpe){
   req.fail(function(jqXHR, textStatus, errorThrown){
   console.error('Sledeca greska se desila> '+textStatus, errorThrown)});
 };
+function izmeniProizvodUListi(korisnickiID , imeKorpePromena,sifraProizvoda,kolicinaProizvoda){
+  event.preventDefault();
+  console.log("menjanje");
+  document.getElementById("IDkorisnikaP").value=korisnickiID;
+  document.getElementById("imeKorpeP").value=imeKorpePromena;
+  document.getElementById("IDproizvodaP").value=sifraProizvoda;
+  document.getElementById("kolicinaP").value=kolicinaProizvoda;
+  document.getElementById("izmenaProizvoda123").style.display='flex';
+}
+function izadji12(){
+  event.preventDefault();
+  document.getElementById("izmenaProizvoda123").style.display='none';
+}
+$("#udji").click(function(){
+  event.preventDefault();
+  document.getElementById("IDkorisnikaP").disabled=false;
+  document.getElementById("imeKorpeP").disabled=false;
+  document.getElementById("IDproizvodaP").disabled=false;
+  var $serijalizacija=$("#izmenaProizvoda123").serialize();
+  console.log($serijalizacija);
+  req=$.ajax({
+    url:"promeniProizvod.php",
+    type:"post",
+    data:$serijalizacija
+  });
+  req.done(function(res, textStatus, jqXHR){
+    if(res=="uspesno je promenjena kolicina proizvoda"){
+      alert("uspesno je promenjena kolicina proizvoda");
+      location.reload();
+  }else alert("Nije promenjena kolicina: "+res);
+  console.log(res);
+  });
+  req.fail(function(jqXHR, textStatus, errorThrown){
+  console.error('Sledeca greska se desila> '+textStatus, errorThrown)});
+  document.getElementById("IDkorisnikaP").disabled=true;
+  document.getElementById("imeKorpeP").disabled=true;
+  document.getElementById("IDproizvodaP").disabled=true;
+});
+function obrisiProizvod(korisnickiID , imeKorpePromena,sifraProizvoda){
+  event.preventDefault();
+  console.log("menjanje");
+  document.getElementById("IDkorisnikaP1").value=korisnickiID;
+  document.getElementById("imeKorpeP1").value=imeKorpePromena;
+  document.getElementById("IDproizvodaP1").value=sifraProizvoda;
+  document.getElementById("izmenaProizvoda1234").style.display='flex';
+}
+function izadji123(){
+  event.preventDefault();
+  document.getElementById("izmenaProizvoda1234").style.display='none';
+}
+$("#obrisi").click(function(){
+  event.preventDefault();
+  document.getElementById("IDkorisnikaP").disabled=false;
+  document.getElementById("imeKorpeP").disabled=false;
+  document.getElementById("IDproizvodaP").disabled=false;
+  var $serijalizacija=$("#izmenaProizvoda123").serialize();
+  console.log($serijalizacija);
+  req=$.ajax({
+    url:"obrisiProizvod.php",
+    type:"post",
+    data:$serijalizacija
+  });
+  req.done(function(res, textStatus, jqXHR){
+    if(res=="uspesno je obrisan proizvod"){
+      alert("uspesno je obrisan proizvod");
+      location.reload();
+  }else alert("Nije obrisan proizvod: "+res);
+  console.log(res);
+  });
+  req.fail(function(jqXHR, textStatus, errorThrown){
+  console.error('Sledeca greska se desila> '+textStatus, errorThrown)});
+  document.getElementById("IDkorisnikaP").disabled=true;
+  document.getElementById("imeKorpeP").disabled=true;
+  document.getElementById("IDproizvodaP").disabled=true;
+});

@@ -34,5 +34,13 @@ class Korpa{
         $q="SELECT kolicina FROM korpaproizvoda where korisnikID='$korisnikID'and imeKorpe='$imeKorpe'and proizvodID='$proizvodID';";
         return $conn->query($q);
     }
+    public static function promeniKolicinu($conn,$korisnikID,$imeKorpe,$IDproizoda,$kolicinaProizvoda){
+        $q="UPDATE korpaproizvoda set kolicina='$kolicinaProizvoda' where korisnikID='$korisnikID' and imeKorpe='$imeKorpe' and proizvodID='$IDproizoda';";
+        return $conn->query($q);
+    }
+    public static function obrisiProizvod($conn,$korisnikID,$imeKorpe,$IDproizvoda){
+        $q="DELETE FROM korpaproizvoda WHERE korisnikID='$korisnikID' and imeKorpe='$imeKorpe' and proizvodID='$IDproizvoda';";
+        return $conn->query($q);
+    }
 }
 ?>
